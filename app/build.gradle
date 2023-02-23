@@ -3,6 +3,9 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 }
 
+//deprecated
+apply plugin: 'kotlin-android-extensions'
+
 android {
     namespace 'com.example.tabladeanuncios'
     compileSdk 33

@@ -4,7 +4,7 @@
 
     <!-- Drawer menu -->
     <string name="ad_cat1">Объявления</string>
-    <string name="ad_my_ads">мои объявления</string>
+    <string name="ad_my_ads">Мои объявления</string>
     <string name="ad_car">Автомобили</string>
     <string name="ad_pc">Компьютеры</string>
     <string name="ad_smartphone">Смартфоны</string>
@@ -13,5 +13,7 @@
     <string name="ad_sign_up">Зарегистрироваться</string>
     <string name="ad_sign_in">Войти</string>
     <string name="ad_sign_out">Выйти</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
 
 </resources>
