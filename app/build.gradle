@@ -4,9 +4,6 @@ plugins {
     id 'com.google.gms.google-services'
 }
 
-//deprecated
-apply plugin: 'kotlin-android-extensions'
-
 android {
     namespace 'com.example.tabladeanuncios'
     compileSdk 33
@@ -33,6 +30,9 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding = true
     }
 }
 
