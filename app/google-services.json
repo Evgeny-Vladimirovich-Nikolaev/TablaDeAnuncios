@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "382864874274",
+    "project_id": "tabla-de-anuncios",
+    "storage_bucket": "tabla-de-anuncios.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:382864874274:android:45f5568febf91bd9fa237b",
+        "android_client_info": {
+          "package_name": "com.example.tabladeanuncios"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "382864874274-ugecpqrkienp2af0u7fsvu8n4ipr3ror.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxbe5uwjZr3Ig8JkwbYKSImhYt2X257I4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "382864874274-ugecpqrkienp2af0u7fsvu8n4ipr3ror.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
