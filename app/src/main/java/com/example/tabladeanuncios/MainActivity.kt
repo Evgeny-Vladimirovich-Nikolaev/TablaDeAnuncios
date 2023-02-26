@@ -7,6 +7,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import com.example.tabladeanuncios.databinding.ActivityMainBinding
+import com.example.tabladeanuncios.dialoghelper.DialogHelper
 import com.google.android.material.navigation.NavigationBarView
 import com.google.android.material.navigation.NavigationView
 
@@ -14,6 +15,7 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
     NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var binding: ActivityMainBinding
+    private val dialogHelper = DialogHelper(this)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
