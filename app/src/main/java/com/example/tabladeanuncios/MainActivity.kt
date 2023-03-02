@@ -7,6 +7,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import com.example.tabladeanuncios.databinding.ActivityMainBinding
+import com.example.tabladeanuncios.dialoghelper.DialogConst
 import com.example.tabladeanuncios.dialoghelper.DialogHelper
 import com.google.android.material.navigation.NavigationBarView
 import com.google.android.material.navigation.NavigationView
@@ -57,12 +58,10 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
                 //TODO
             }
             R.id.ad_sign_up -> {
-                Toast.makeText(this, "Pressed ad_sign_up", Toast.LENGTH_LONG).show()
-                //TODO
+                dialogHelper.createSignDialog(DialogConst.SIGN_UP_STATE)
             }
             R.id.ad_sign_in -> {
-                Toast.makeText(this, "Pressed ad_sign_in", Toast.LENGTH_LONG).show()
-                //TODO
+                dialogHelper.createSignDialog(DialogConst.SIGN_IN_STATE)
             }
             R.id.ad_sign_out -> {
                 Toast.makeText(this, "Pressed ad_sign_out", Toast.LENGTH_LONG).show()
