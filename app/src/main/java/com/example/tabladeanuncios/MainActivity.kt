@@ -13,6 +13,7 @@ import com.example.tabladeanuncios.dialoghelper.DialogHelper
 import com.google.android.material.navigation.NavigationBarView
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 
 class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListener,
     NavigationView.OnNavigationItemSelectedListener {
@@ -21,6 +22,11 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
     private lateinit var tvAccount: TextView
     private val dialogHelper = DialogHelper(this)
     val mAuth = FirebaseAuth.getInstance()
+
+    override fun onStart() {
+        super.onStart()
+        uiUpdate(mAuth.currentUser)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -70,14 +76,20 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
                 dialogHelper.createSignDialog(DialogConst.SIGN_IN_STATE)
             }
             R.id.ad_sign_out -> {
-                Toast.makeText(this, "Pressed ad_sign_out", Toast.LENGTH_LONG).show()
-                //TODO
+                mAuth.signOut()
+                uiUpdate(null)
             }
         }
         binding.drawerLayout.closeDrawer(GravityCompat.START)
         return true
     }
 
-    
+    fun uiUpdate(user: FirebaseUser?) {
+        tvAccount.text = if(user == null) {
+            resources.getString(R.string.not_reg)
+        } else {
+            user.email
+        }
+    }
 }
 
