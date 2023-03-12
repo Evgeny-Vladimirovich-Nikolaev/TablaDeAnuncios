@@ -1,6 +1,7 @@
 package com.example.tabladeanuncios.dialoghelper
 
 import android.app.AlertDialog
+import android.view.View
 import com.example.tabladeanuncios.MainActivity
 import com.example.tabladeanuncios.R
 import com.example.tabladeanuncios.accounthelper.AccountHelper
@@ -19,12 +20,18 @@ class DialogHelper(act: MainActivity) {
         } else {
             binding.tvSignTitle.text = act.resources.getText(R.string.ad_sign_in)
             binding.btSignUpIn.text = act.resources.getText(R.string.sing_in_action)
+            binding.btForgetPass.visibility = View.VISIBLE
         }
         val dialog = builder.create()
         binding.btSignUpIn.setOnClickListener {
             dialog.dismiss()
             if(index == DialogConst.SIGN_UP_STATE) {
                 accHelper.signUpWithEmail(
+                    binding.edSignEmail.text.toString(),
+                    binding.edSignPassword.text.toString())
+            }
+            else {
+                accHelper.signInWithEmail(
                     binding.edSignEmail.text.toString(),
                     binding.edSignPassword.text.toString())
             }

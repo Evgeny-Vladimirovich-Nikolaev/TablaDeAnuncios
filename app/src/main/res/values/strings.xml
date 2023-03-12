@@ -23,6 +23,7 @@
     <string name="sing_in_action">Войти</string>
     <string name="forget_password">Забыли пароль?</string>
     <string name="sign_up_error">Не удалось зарегистрироваться</string>
+    <string name="sign_in_error">Не удалось войти</string>
     <string name="send_verification_error">Не удалось отправить email для подтверждения</string>
     <string name="send_verification_done">ссылка для подтверждения аккаунта была отправлена на указанную при регистрации почту</string>
 </resources>
