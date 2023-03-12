@@ -2,6 +2,8 @@ package com.example.tabladeanuncios.dialoghelper
 
 import android.app.AlertDialog
 import android.view.View
+import android.widget.TextView
+import android.widget.Toast
 import com.example.tabladeanuncios.MainActivity
 import com.example.tabladeanuncios.R
 import com.example.tabladeanuncios.accounthelper.AccountHelper
@@ -19,7 +21,36 @@ class DialogHelper(act: MainActivity) {
         binding.btSignUpIn.setOnClickListener {
             determineIdentificationType(dialog, index, binding)
         }
+        binding.btForgetPass.setOnClickListener {
+            sendResetPasswordLetter(binding)
+        }
+        binding.edSignEmail.setOnClickListener {
+            binding.tvSendLetterError.visibility = View.GONE
+        }
         dialog.show()
+    }
+
+    private fun sendResetPasswordLetter(binding: SignDialogBinding) {
+        val email = binding.edSignEmail.text
+        val error = binding.tvSendLetterError
+        if (binding.edSignEmail.text.isNotEmpty()) {
+            act.mAuth.sendPasswordResetEmail(email.toString()).addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    Toast.makeText(
+                        act,
+                        R.string.email_reset_password_was_send.toString(),
+                        Toast.LENGTH_LONG
+                    )
+                        .show()
+                } else {
+                    error.text = act.resources.getString(R.string.email_reset_password_error)
+                    error.visibility = View.VISIBLE
+                }
+            }
+        } else {
+            error.text = act.resources.getString(R.string.email_reset_password_missing)
+            error.visibility = View.VISIBLE
+        }
     }
 
     private fun determineIdentificationType(
@@ -54,4 +85,6 @@ class DialogHelper(act: MainActivity) {
             binding.btForgetPass.visibility = View.VISIBLE
         }
     }
+
 }
+

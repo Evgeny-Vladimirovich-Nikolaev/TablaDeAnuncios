@@ -25,5 +25,8 @@
     <string name="sign_up_error">Не удалось зарегистрироваться</string>
     <string name="sign_in_error">Не удалось войти</string>
     <string name="send_verification_error">Не удалось отправить email для подтверждения</string>
-    <string name="send_verification_done">ссылка для подтверждения аккаунта была отправлена на указанную при регистрации почту</string>
+    <string name="send_verification_done">Ссылка для подтверждения аккаунта была отправлена на указанную при регистрации почту</string>
+    <string name="email_reset_password_was_send">Ссылка для подтверждения сброса пароля была отправлена на указанную при регистрации почту</string>
+    <string name="email_reset_password_missing">Для восстановления пароля введите указанный при регистрации e-mail</string>
+    <string name="email_reset_password_error">Введен неправильный e-mail. Для восстановления пароля введите указанный при регистрации e-mail</string>
 </resources>
