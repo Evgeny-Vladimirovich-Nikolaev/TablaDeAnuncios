@@ -14,7 +14,38 @@ class DialogHelper(act: MainActivity) {
         val builder = AlertDialog.Builder(act)
         val binding = SignDialogBinding.inflate(act.layoutInflater)
         builder.setView(binding.root)
-        if(index == DialogConst.SIGN_UP_STATE) {
+        setDialogState(index, binding)
+        val dialog = builder.create()
+        binding.btSignUpIn.setOnClickListener {
+            determineIdentificationType(dialog, index, binding)
+        }
+        dialog.show()
+    }
+
+    private fun determineIdentificationType(
+        dialog: AlertDialog,
+        index: Int,
+        binding: SignDialogBinding
+    ) {
+        dialog.dismiss()
+        if (index == DialogConst.SIGN_UP_STATE) {
+            accHelper.signUpWithEmail(
+                binding.edSignEmail.text.toString(),
+                binding.edSignPassword.text.toString()
+            )
+        } else {
+            accHelper.signInWithEmail(
+                binding.edSignEmail.text.toString(),
+                binding.edSignPassword.text.toString()
+            )
+        }
+    }
+
+    private fun setDialogState(
+        index: Int,
+        binding: SignDialogBinding
+    ) {
+        if (index == DialogConst.SIGN_UP_STATE) {
             binding.tvSignTitle.text = act.resources.getText(R.string.ad_sign_up)
             binding.btSignUpIn.text = act.resources.getText(R.string.sing_up_action)
         } else {
@@ -22,20 +53,5 @@ class DialogHelper(act: MainActivity) {
             binding.btSignUpIn.text = act.resources.getText(R.string.sing_in_action)
             binding.btForgetPass.visibility = View.VISIBLE
         }
-        val dialog = builder.create()
-        binding.btSignUpIn.setOnClickListener {
-            dialog.dismiss()
-            if(index == DialogConst.SIGN_UP_STATE) {
-                accHelper.signUpWithEmail(
-                    binding.edSignEmail.text.toString(),
-                    binding.edSignPassword.text.toString())
-            }
-            else {
-                accHelper.signInWithEmail(
-                    binding.edSignEmail.text.toString(),
-                    binding.edSignPassword.text.toString())
-            }
-        }
-        dialog.show()
     }
 }
